@@ -24,14 +24,14 @@ public class FishService {
         entityManager.flush();
         return fish;
     }
-    //  Обновить озеро
+    //  Обновить рыбу
     @Transactional
     public Fish updateFish(Fish fish) {
         entityManager.merge(fish);
         entityManager.flush();
         return fish;
     }
-    //  Получить все озера
+    //  Получить всех рыб
     @Transactional
     public List<Fish> getFishes() {
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
@@ -40,7 +40,7 @@ public class FishService {
         CriteriaQuery<Fish> all = cq.select(rootEntry);
         return entityManager.createQuery(all).getResultList();
     }
-    //  Удалить озеро
+    //  Удалить рыбу
     @Transactional
     public Fish deleteFish(Fish fish) {
         entityManager.remove(fish);
